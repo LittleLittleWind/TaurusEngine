@@ -19,10 +19,10 @@ workspace "Taurus"
     
 project "App"
 	kind "ConsoleApp"
-	files "../Runtime/**"
+	files {"../Runtime/**", "../Platform/WinPlayer/glad/src/**"}
 
-    includedirs "../Platform/WinPlayer/SDL2/include"
-    libdirs "../Platform/WinPlayer/SDL2/lib/x64"
+    includedirs {"$(ProjectDir)../../Platform/WinPlayer/SDL2/include", "$(ProjectDir)../../Platform/WinPlayer/glad/include"}
+    libdirs "$(ProjectDir)../../Platform/WinPlayer/SDL2/lib/x64"
     debugenvs "PATH=%PATH%;$(ProjectDir)../../Platform/WinPlayer/SDL2/lib/x64"
     -- runpathdirs "../Platform/WinPlayer/SDL2/lib/x64"
     links {"SDL2.lib", "SDL2main.lib"}
